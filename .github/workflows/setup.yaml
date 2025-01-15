@@ -2,7 +2,7 @@ name: Setup Flask
 on: 
     push:
 jobs:
-    setup:
+    test:
         runs-on: ubuntu-22.04
         steps:
             - name: Get code
@@ -16,7 +16,25 @@ jobs:
                   python3 -m venv myenv
                   source myenv/bin/activate
             - name: run test
-              run: python test.py  
+              run: python test.py
+    deploy:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Get code
+              uses: actions/checkout@v3
+
+            - name: Setup flask
+              run: pip install flask
+
+            - name: Setup venv
+              run: |
+                  python3 -m venv myenv
+                  source myenv/bin/activate
+            - name: Deploy
+              run: echo "Deployed Flask"
+              
+
+
             
             
 
