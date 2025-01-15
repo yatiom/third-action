@@ -18,6 +18,7 @@ jobs:
             - name: run test
               run: python test.py
     deploy:
+        needs: test
         runs-on: ubuntu-22.04
         steps:
             - name: Get code
@@ -32,7 +33,7 @@ jobs:
                   source myenv/bin/activate
             - name: Deploy
               run: echo "Deployed Flask"
-              
+
 
 
             
