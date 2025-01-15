@@ -5,4 +5,4 @@ jobs:
           runs-on: ubuntu-22.04
           steps:
                 - name: Output Info
-                  run: echo "${{ github }}"
+                  run: echo "${{ job }}"
